@@ -184,7 +184,6 @@ function process(msg)
           return tostring(matches[2]) .. " Added to Sudo Users"
         end
 			    elseif text_:match("^[!/#](help)") and is_sudo(msg) then
-		            redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
       local text1 = [[
 	  
 راهنمای ربات تبچی نسخه 4.3 دیکامپایل و ویرایش شده 
@@ -286,7 +285,7 @@ Decompiled by @sajjad_021
 TeleGram channel @tgMember
 enjoy your bot! ]]
 return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "")
-	  
+redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
       elseif text_:match("^[!/#](remsudo) (%d+)") then
         local matches = {
           text_:match("^[!/#](remsudo) (%d+)")
